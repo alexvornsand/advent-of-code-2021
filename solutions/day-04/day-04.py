@@ -3,6 +3,8 @@
 
 # part 1
 import numpy as np
+
+
 calls = [int(x) for x in open('day-04.txt',
                               'r').read().split('\n\n')[0].split(',')]
 cards = [np.asarray([[int(x) for x in line.split(' ') if x != ''] for line in card[:5]]) for card in [
@@ -19,23 +21,20 @@ def playBingo(calls, cards, partTwo=False):
                             for row in card]) for card in cards]
         for i in cardIndex:
             if(
-                0 in np.sum(card[i], axis=0) or
-                0 in np.sum(card[i], axis=1)
+                0 in np.sum(card[i], axis=0)
+                or 0 in np.sum(card[i], axis=1)
             ):
-                print(cards[i])
                 cards[i] = np.asarray(
                     [[0 if np.isnan(num) else num for num in row] for row in cards[i]])
                 scores[place] = call * cards[i].sum()
-                print("card number ", i, " comes in ", place,
-                      " with score ", call * cards[i].sum())
                 place += 1
                 if(partTwo is True):
                     cardIndex.remove(i)
-        if(partTwo is False):
-            if(scores[0] > 0):
+        if partTwo is False:
+            if scores[0] > 0:
                 print(max(scores))
                 break
-    if(partTwo is True):
+    if partTwo is True:
         print(scores[ncards])
 
 

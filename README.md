@@ -28,3 +28,7 @@ A place for me to attempt 2021's [Advent of Code](https://adventofcode.com/2021/
 [Day 13 (Python)](/solutions/day-13)
 
 [Day 14 (Python)](/solutions/day-14)
+
+[Day 15 (Python)](/solutions/day-15)
+
+[Day 16 (Python)](/solutions/day-16)
